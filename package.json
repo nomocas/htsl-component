@@ -1,6 +1,6 @@
 {
   "name": "babelute-html-component",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "babelute-html React-like Component Class",
   "main": "dist/bundles/index.js",
   "module": "dist/bundles/index.mjs",
@@ -32,7 +32,7 @@
   "author": "Gilles Coomans",
   "license": "MIT",
   "dependencies": {
-    "async-aggregator":"^0.0.4"
+    "async-aggregator": "^0.0.4"
   },
   "devDependencies": {
     "assert": "^1.4.1",
