@@ -31,7 +31,9 @@
   ],
   "author": "Gilles Coomans",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "async-aggregator":"^0.0.4"
+  },
   "devDependencies": {
     "assert": "^1.4.1",
     "babel-cli": "^6.14.0",
