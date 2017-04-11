@@ -60,6 +60,8 @@
     "nyc": "^8.1.0",
     "rollup": "^0.41.4",
     "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-watch": "^3.2.2",
     "uglify-js": "^2.7.5"
   }
