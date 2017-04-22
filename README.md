@@ -1,24 +1,24 @@
-# babelute-html Component Class
+# htsl Component Class
 
-[![Travis branch](https://img.shields.io/travis/nomocas/babelute-html-component/master.svg)](https://travis-ci.org/nomocas/babelute-html-component)
-[![bitHound Overall Score](https://www.bithound.io/github/nomocas/babelute-html-component/badges/score.svg)](https://www.bithound.io/github/nomocas/babelute-html-component)
-[![npm](https://img.shields.io/npm/v/babelute-html-component.svg)]()
-[![npm-downloads](https://img.shields.io/npm/dm/babelute-html-component.svg)]()
-[![licence](https://img.shields.io/npm/l/babelute-html-component.svg)](https://spdx.org/licenses/MIT)
-[![dependencies](https://img.shields.io/david/nomocas/babelute-html-component.svg)]()
-[![dev-dependencies](https://img.shields.io/david/dev/nomocas/babelute-html-component.svg)]()
+[![Travis branch](https://img.shields.io/travis/nomocas/htsl-component/master.svg)](https://travis-ci.org/nomocas/htsl-component)
+[![bitHound Overall Score](https://www.bithound.io/github/nomocas/htsl-component/badges/score.svg)](https://www.bithound.io/github/nomocas/htsl-component)
+[![npm](https://img.shields.io/npm/v/htsl-component.svg)]()
+[![npm-downloads](https://img.shields.io/npm/dm/htsl-component.svg)]()
+[![licence](https://img.shields.io/npm/l/htsl-component.svg)](https://spdx.org/licenses/MIT)
+[![dependencies](https://img.shields.io/david/nomocas/htsl-component.svg)]()
+[![dev-dependencies](https://img.shields.io/david/dev/nomocas/htsl-component.svg)]()
 
-React Like Component Class for [babelute-html-lexicon](https://github.com/nomocas/babelute-html-lexicon).
+React Like Component Class for [htsl-lexicon](https://github.com/nomocas/htsl-lexicon).
 
 (Almost) same API than [React component](https://facebook.github.io/react/docs/react-component.html).
 
-Usable with [babelute-html-dom-diffing-pragmatics](https://github.com/nomocas/babelute-html-dom-diffing-pragmatics) and [babelute-html-string-pragmatics](https://github.com/nomocas/babelute-html-string-pragmatics) 
+Usable with [htsl-dom-diffing-pragmatics](https://github.com/nomocas/htsl-dom-diffing-pragmatics) and [htsl-string-pragmatics](https://github.com/nomocas/htsl-string-pragmatics) 
 
 ## Usage
 
 ```javascript
-import Component from 'babelute-html-component';
-import htmlLexicon from 'babelute-html-lexicon';
+import Component from 'htsl-component';
+import htmlLexicon from 'htsl-lexicon';
 
 const MyComponent = Component.extends(Component, {
 	getInitialState:function(props){

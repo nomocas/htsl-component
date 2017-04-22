@@ -1,7 +1,7 @@
 {
-  "name": "babelute-html-component",
+  "name": "htsl-component",
   "version": "0.1.4",
-  "description": "babelute-html React-like Component Class",
+  "description": "htsl React-like Component Class",
   "main": "dist/bundles/index.js",
   "module": "dist/bundles/index.mjs",
   "jsnext:main": "dist/bundles/index.mjs",

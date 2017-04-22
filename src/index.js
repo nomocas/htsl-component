@@ -1,6 +1,6 @@
 /*
  * @Author: Gilles Coomans
- * Babelute-html Component Class (almost same api than React)
+ * htsl Component Class (almost same api than React)
  */
 
 import assert from 'assert'; // removed in production
@@ -199,7 +199,7 @@ export default Component;
 /**
  * @example
  * import Component from './component';
- * import htmlLexicon from 'babelute-html/src/html-lexicon'; 
+ * import htmlLexicon from 'htsl/src/html-lexicon'; 
  * 
  * class Foo extends Component {
  * 	constructor(props) {
