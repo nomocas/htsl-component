@@ -34,9 +34,13 @@ Component.prototype = {
 	},
 
 	forceUpdate() {
-		this.componentWillUpdate();
-		this._render();
-		this.componentDidUpdate();
+		try {
+			this.componentWillUpdate();
+			this._render();
+			this.componentDidUpdate();
+		} catch (e) {
+			console.error('component error while forceUpdate', e, e.stack); // eslint-disable-line
+		}
 	},
 
 	/**
@@ -57,9 +61,13 @@ Component.prototype = {
 		this.unmounted = true;
 		if (this.animFrame)
 			cancelAnimationFrame(this.animFrame);
-		this.componentWillUnmount();
-		this._remove();
-		this.componentDidUnmount();
+		try {
+			this.componentWillUnmount();
+			this._remove();
+			this.componentDidUnmount();
+		} catch (e) {
+			console.error('component error while unmount', e, e.stack); // eslint-disable-line
+		}
 	},
 
 	/**
