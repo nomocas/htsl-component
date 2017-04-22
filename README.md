@@ -5,12 +5,12 @@
 [![npm](https://img.shields.io/npm/v/babelute-html-component.svg)]()
 [![npm-downloads](https://img.shields.io/npm/dm/babelute-html-component.svg)]()
 [![licence](https://img.shields.io/npm/l/babelute-html-component.svg)](https://spdx.org/licenses/MIT)
-[![dependecies](https://img.shields.io/david/nomocas/babelute-html-component.svg)]()
+[![dependencies](https://img.shields.io/david/nomocas/babelute-html-component.svg)]()
 [![dev-dependencies](https://img.shields.io/david/dev/nomocas/babelute-html-component.svg)]()
 
 React Like Component Class for [babelute-html-lexicon](https://github.com/nomocas/babelute-html-lexicon).
 
-(Almost) same API than [react component](https://facebook.github.io/react/docs/react-component.html).
+(Almost) same API than [React component](https://facebook.github.io/react/docs/react-component.html).
 
 Usable with [babelute-html-dom-diffing-pragmatics](https://github.com/nomocas/babelute-html-dom-diffing-pragmatics) and [babelute-html-string-pragmatics](https://github.com/nomocas/babelute-html-string-pragmatics) 
 
@@ -23,22 +23,31 @@ import htmlLexicon from 'babelute-html-lexicon';
 const MyComponent = Component.extends(Component, {
 	getInitialState:function(props){
 		return {
-			//...
+			title: 'Hello world'
+			...
 		};
 	},
 	componentWillMount() {
-		// ...
+		...
+	},
+	componentDidUnmount(){
+		...
+	},
+	doSomething(event, arg) {
+		console.log('bam!', arg);
 	},
 	render: function(firstLevel){
 		var h = htmlLexicon.initializer(firstLevel);
-		return h.div('...');
+		return h.div(h.h1(thi.state.title).button('foo', h.click(this.doSomething)), ...);
 	}
 });
 
-const h = htmlLexicon.initializer(/* true if you use Diffing, false if you use String engine */);
+// usage :
+const h = htmlLexicon.initializer(/* true if you use FirstLevel Diffing, false otherwise */);
 const mySentence = h.div('...', h.component(MyComponent, { /* component props */ }));
 
 ```
+
 
 
 ## Licence
