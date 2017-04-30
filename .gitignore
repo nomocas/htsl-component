@@ -42,7 +42,6 @@ node_modules
 *.tar
 *.zip
  
- 
 # OS generated files #
 ######################
 .DS_Store
@@ -54,9 +53,9 @@ ehthumbs.db
 Thumbs.db
 
 
-
 dist
 .nyc_output
+.coveralls.yml
 
 
 
