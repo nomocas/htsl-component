@@ -1,6 +1,6 @@
 {
   "name": "htsl-component",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "htsl React-like Component Class",
   "main": "dist/bundles/index.js",
   "module": "dist/bundles/index.mjs",
@@ -14,7 +14,7 @@
     "test": "mocha",
     "karma": "karma start",
     "cover": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test/*.js",
-    "release":"standard-version",
+    "release": "standard-version",
     "prepublish": "npm test"
   },
   "nyc": {
