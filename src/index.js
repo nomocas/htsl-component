@@ -14,8 +14,7 @@ function Component(props, parent) {
 	for (const i in this) // bind all component's methods to component
 		if (i !== 'constructor' && typeof this[i] === 'function')
 			this[i] = this[i].bind(this);
-	if (this.getInitialState)
-		this.state = this.getInitialState(props);
+	this.state = this.getInitialState ? this.getInitialState(props) : {};
 }
 
 Component.prototype = {
