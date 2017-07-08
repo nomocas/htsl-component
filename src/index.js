@@ -6,6 +6,11 @@
 import assert from 'assert'; // removed in production
 import AsyncAggregator from 'async-aggregator';
 
+/**
+ * Component class : React Styled component (with same api and lifehooks)
+ * @param {Object} props  static properties received from upper render tree
+ * @param {Component} parent the parent component
+ */
 function Component(props, parent) {
 	this.props = props;
 	this.parent = parent;
@@ -32,13 +37,18 @@ Component.prototype = {
 			this.forceUpdate(); // update come from upper tree update : so immediate update
 	},
 
+	/**
+	 * immediate update
+	 * @return {Void} nothing
+	 * @protected
+	 */
 	forceUpdate() {
 		try {
 			this.componentWillUpdate();
 			this._render();
 			this.componentDidUpdate();
 		} catch (e) {
-			console.error('component error while forceUpdate', e, e.stack); // eslint-disable-line
+			console.error('component error while update', e, e.stack); // eslint-disable-line
 		}
 	},
 
@@ -70,7 +80,7 @@ Component.prototype = {
 	},
 
 	/**
-	 * under-the-hood render and remove methods that are pragmas dependent
+	 * under-the-hood render and remove methods that are pragmatics dependent
 	 * @protected
 	 */
 	_render() { /* will be overriden by pragmas engine */ },
@@ -79,12 +89,12 @@ Component.prototype = {
 
 	// could be overriden by subclasses
 	componentWillReceiveProps( /* props */ ) {},
-	componentWillMount() {},
-	componentDidMount() {},
-	componentWillUpdate() {},
-	componentDidUpdate() {},
-	componentWillUnmount() {},
-	componentDidUnmount() {}
+	componentWillMount( /* props */ ) {},
+	componentDidMount( /* props */ ) {},
+	componentWillUpdate( /* props */ ) {},
+	componentDidUpdate( /* props */ ) {},
+	componentWillUnmount( /* props */ ) {},
+	componentDidUnmount( /* props */ ) {}
 };
 
 
@@ -99,101 +109,12 @@ Component.extends = function(Class, api) {
 	};
 	C.prototype = Object.create(Class.prototype);
 	C.prototype.constructor = C;
-	for (const i in api) // Object.assign seems to bug when used on prototype (not investigate enough : so use plain old for-in syntax)
+	for (const i in api)
 		C.prototype[i] = api[i];
 	return C;
 };
 
 export default Component;
-
-// export default class Component {
-
-// 	constructor(props, parent) {
-// 		this.props = props;
-// 		this.parent = parent;
-// 		this.waiter = parent && parent.waiter || new AsyncAggregator();
-// 		if (this.getInitialState)
-// 			this.state = this.getInitialState(props);
-// 		console.log('component init'); // eslint-disable-line no-console
-// 		for (const i in this) // bind all component's methods to component
-// 			if (i !== 'constructor' && typeof this[i] === 'function') {
-// 				console.log('component bind method : ', i); // eslint-disable-line no-console
-// 				this[i] = this[i].bind(this);
-// 			}
-// 		this.unmount = this.unmount.bind(this);
-// 	}
-
-// 	setState(state) {
-// 		this.state = Object.assign({}, this.state, state);
-// 		if (!this.unmounted)
-// 			this.delayedUpdate();
-// 	}
-
-// 	setProps(props) {
-// 		this.componentWillReceiveProps(props);
-// 		this.props = Object.assign({}, this.props, props);
-// 		this.forceUpdate();
-// 	}
-
-// 	forceUpdate() {
-// 		this.componentWillUpdate();
-// 		this._render();
-// 		this.componentDidUpdate();
-// 	}
-
-// 	/**
-// 	 * addition to React API : wait next animation frame then update (normally not used directly)
-// 	 * @return {Void} nothing
-// 	 * @protected
-// 	 */
-// 	delayedUpdate() {
-// 		if (this.animFrame)
-// 			cancelAnimationFrame(this.animFrame);
-// 		this.animFrame = requestAnimationFrame(() => { this.animFrame = null;
-// 			this.forceUpdate(); });
-// 	}
-
-// 	unmount() {
-// 		this.unmounted = true;
-// 		if (this.animFrame)
-// 			cancelAnimationFrame(this.animFrame);
-// 		this.componentWillUnmount();
-// 		this._remove();
-// 		this.componentDidUnmount();
-// 	}
-
-// 	/**
-// 	 * under-the-hood render and remove methods that are pragmas dependent
-// 	 * @protected
-// 	 */
-// 	_render() { /* will be overriden by pragmas engine */ }
-// 	_remove() { /* will be overriden by pragmas engine */ }
-
-// 	// could be overriden by subclasses
-// 	componentWillReceiveProps( /* props */ ) {}
-// 	componentWillMount() {}
-// 	componentDidMount() {}
-// 	componentWillUpdate() {}
-// 	componentDidUpdate() {}
-// 	componentWillUnmount() {}
-// 	componentDidUnmount() {}
-
-// 	// Component easy extension
-// 	static extends(Class, api) {
-
-// 		assert(Class === Component || (Class.prototype instanceof Component), 'Component.extends accepts only a Component Class or Subclass as first argument');
-// 		assert(!api || typeof api === 'object', 'Component.extends need a (optional) valid object containing methods as second argument');
-
-// 		const C = function(props) {
-// 			Class.call(this, props);
-// 		};
-// 		C.prototype = Object.create(Class.prototype);
-// 		C.prototype.constructor = C;
-// 		for (const i in api) // Object.assign seems to bug when used on prototype (not investigate enough : so use plain old for-in syntax)
-// 			C.prototype[i] = api[i];
-// 		return C;
-// 	}
-// }
 
 /**
  * @example
